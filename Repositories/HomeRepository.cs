@@ -15,7 +15,7 @@ namespace BookShoppingCartMvc1.Repositories
         public async Task<IEnumerable<Book>> GetBooks(string sTerm="",int genreId=0)
         {
             sTerm = sTerm.ToLower();
-            var books = (from book in _db.Books
+            var books = await (from book in _db.Books
                          join genre in _db.Genres
                          on book.GenreId equals genre.Id
                          where string.IsNullOrWhiteSpace(sTerm) ||(book!=null && book.BookName.ToLower().StartsWith(sTerm))
