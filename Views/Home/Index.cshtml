@@ -59,6 +59,15 @@
         @section Scripts{
             <script>
                 async function add(bookId){
+                var usernameEl=document.getElementById("username");
+        if(usernameEl==null){
+           window.location.href="/Identity/Account/Login";
+
+        //var username=usernameEl.innerText;
+        //if(username.length<1){
+          //  window.location.href="/Identity/Account/Login";
+        // }
+        }
                     try{
                     var response = fetch('/Cart/AddItem?bookId=${bookId}');
                     if(response.status==200){
@@ -66,6 +75,7 @@
                     console.log(result);
                             var cartCountEl = document.getElementById("cartCount")
                             cartCountEl.innerHTML = result;
+                            window.location.href="#cartCount";
                     }
                     }
                     catch(err){
