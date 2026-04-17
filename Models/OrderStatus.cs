@@ -10,6 +10,7 @@ namespace BookShoppingCartMvc1.Models
         [Required]
         public int StatusId { get; set; }
         [Required, MaxLength(20)]
+        public Book book { get; set; }
         public string? StatusName { get; set; }
     }
 }
